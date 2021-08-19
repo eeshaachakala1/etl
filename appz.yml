@@ -1,0 +1,29 @@
+app:
+  code: ETL
+  name: etl
+  notify: eachakala@ecloudcontrol.com
+  
+build:
+  build_file: pom.xml
+  env: DEV
+  image_template: etl-2.0
+  output_files: target/*.jar
+  
+deploy:
+  context: eeshaachakala1/DEV
+  #port: 8080
+  replicas: 1
+  
+properties:
+  AWS_ACCESS_KEY_ID:
+    vault: AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCESS_KEY:
+    vault: AWS_SECRET_ACCESS_KEY
+  AWS_S3_BUCKET: lyc_account
+  SOURCE_DB_PASSWORD:
+    vault: SOURCE_DB_PASSWORD
+  TARGET_DB_PASSWORD:
+    vault: TARGET_DB_PASSWORD
+  AWS_S3_BUCKET_PATH: testbucket-onetwo
+
+  nano: 94
