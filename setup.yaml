@@ -1,5 +1,5 @@
 extract:
-  - source_db: 'jdbc:mysql://mariadb:3306/wordpress'
+  - source_db: 'jdbc:mysql://mariadb-master-10-4:3306/wordpress'
     source_user: root
     source_password: $SOURCE_DB_PASSWORD
     sql: 'select * from wordpress.wp_actionscheduler_groups'
