@@ -4,10 +4,10 @@ app:
   notify: eachakala@ecloudcontrol.com
   
 build:
-  build_file: pom.xml
+  build_file: none
   env: DEV
   image_template: etl-2.0
-  output_files: target/*.jar
+  output_files: output/*.zip
   
 deploy:
   context: eeshaachakala1/DEV
