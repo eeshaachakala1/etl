@@ -4,6 +4,7 @@ app:
   notify: eachakala@ecloudcontrol.com
   
 build:
+  version: 2.0
   build_file: none
   env: DEV
   image_template: etl-2.0
