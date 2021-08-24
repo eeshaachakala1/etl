@@ -1,0 +1,11 @@
+extract:
+  - source_db: 'jdbc:mysql://mariadb:3306/test01'
+    source_user: root
+    source_password: $SOURCE_DB_PASSWORD
+    sql: 'select * from test01.contacts'
+    outfile: /appz/data/table_timestamp.csv
+load:
+  - target_db: test-redshift.c2rrh878rpqm.us-east-2.redshift.amazonaws.com:5439/dev
+    target_user: master
+    target_password: $TARGET_DB_PASSWORD
+    sql: COPY contacts FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' IGNOREHEADER 1;
