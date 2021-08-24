@@ -11,8 +11,16 @@ build:
   
 deploy:
   context: eeshaachakala1/DEV
+  type: statefulset
   #port: 8080
   replicas: 1
+  
+volumes:
+- claim: etl-data
+  mount: /appz/data
+  name: data
+  size: 5Gi
+  mode: ReadWriteOnce
   
 properties:
   AWS_ACCESS_KEY_ID:
