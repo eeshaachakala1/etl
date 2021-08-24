@@ -23,15 +23,14 @@ volumes:
   mode: ReadWriteOnce
   
 properties:
-  AWS_ACCESS_KEY_ID:
-    vault: AWS_ACCESS_KEY_ID
+  AWS_ACCESS_KEY_ID: AKIAW4BAQ6X6G74LXLHR
   AWS_SECRET_ACCESS_KEY:
     vault: AWS_SECRET_ACCESS_KEY
-  AWS_S3_BUCKET: lyc_account
+  AWS_S3_BUCKET: testbucket-onetwo
   SOURCE_DB_PASSWORD:
     vault: SOURCE_DB_PASSWORD
   TARGET_DB_PASSWORD:
     vault: TARGET_DB_PASSWORD
-  AWS_S3_BUCKET_PATH: testbucket-onetwo
+  AWS_S3_BUCKET_PATH: lyc_account/
 
   nano: 94
