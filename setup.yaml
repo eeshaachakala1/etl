@@ -1,11 +1,11 @@
 extract:
-  - source_db: 'jdbc:mysql://mariadb-master-10-4:3306/wordpress'
+  - source_db: 'jdbc:mysql://mariadb-master-10-4:3306/lyc_veative'
     source_user: root
     source_password: $SOURCE_DB_PASSWORD
-    sql: 'select * from wordpress.wp_actionscheduler_groups'
+    sql: 'select * from lyc_veative.dt_behaviour_master_animal'
     outfile: /appz/data/table_timestamp.csv
 load:
   - target_db: test-redshift.c2rrh878rpqm.us-east-2.redshift.amazonaws.com:5439/dev
     target_user: master
     target_password: $TARGET_DB_PASSWORD
-    sql: COPY wp_actionscheduler_groups FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' IGNOREHEADER 1;
+    sql: COPY dt_behaviour_master_animal FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' IGNOREHEADER 1;
