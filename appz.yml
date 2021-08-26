@@ -34,4 +34,4 @@ properties:
     vault: TARGET_DB_PASSWORD
   AWS_S3_BUCKET_PATH: lyc_account/
 
-  nano: 99
+  nano: 66
