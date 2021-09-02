@@ -30,5 +30,5 @@ extract:
         target_password: $TARGET_DB_PASSWORD
         sql: COPY dt_behaviour_user_animal FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' IGNOREHEADER 1;
 schedule:
-  - start: 20210831-0733
+  - start: 20210902-1026
     interval: 86400
