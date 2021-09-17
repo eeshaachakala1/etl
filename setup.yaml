@@ -29,6 +29,16 @@ extract:
         target_user: master
         target_password: $TARGET_DB_PASSWORD
         sql: COPY dt_behaviour_user_animal FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' IGNOREHEADER 1;
+  - source_db: 'jdbc:mysql://mariadb-master-10-4:3306/lyc_veative'
+    source_user: root
+    source_password: $SOURCE_DB_PASSWORD
+    sql: 'select c.`SKILL_ID`, `MBTI_ID`, `SKILL_NAME`, `SKILL_DEF`, `SKILL_DESC`, b.`SKILLONET_ID`, `SKILLONET_NAME`, `SKILLONET_DESC`, a.`SKILLTYPE_ID`, `SKILLTYPE_NAME`, `SKILLTYPE_DESC`, `SKILL_VIDEMBED`, `SKILL_IMG`, `SKILL_ORDER` from dt_skill_master_skilltype a, dt_skill_master_skillonet b, dt_skill_master_skill c, dt_skill_master_skillmapper d where b.SKILLTYPE_ID=a.SKILLTYPE_ID and d.SKILL_ID=c.SKILL_ID and d.SKILLONET_ID=b.SKILLONET_ID ORDER BY c.SKILL_NAME, b.SKILLONET_ID'
+    outfile: /appz/data/table_timestamp.csv
+    load:
+      - target_db: test-redshift.c2rrh878rpqm.us-east-2.redshift.amazonaws.com:5439/dev
+        target_user: master
+        target_password: $TARGET_DB_PASSWORD
+        sql: COPY table_sevenone FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' IGNOREHEADER 1;
 schedule:
   - start: 20210902-1026
     interval: 86400
