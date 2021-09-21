@@ -50,5 +50,5 @@ extract:
         target_password: $TARGET_DB_PASSWORD
         sql: COPY ac_user_master_usr FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' IGNOREHEADER 1;
 schedule:
-  - start: 20210921-1222
+  - start: 20210921-1228
     interval: 86400
