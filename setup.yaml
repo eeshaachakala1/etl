@@ -48,7 +48,7 @@ extract:
       - target_db: test-redshift.c2rrh878rpqm.us-east-2.redshift.amazonaws.com:5439/dev
         target_user: master
         target_password: $TARGET_DB_PASSWORD
-        sql: COPY ac_user_master_usr FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' IGNOREHEADER 1;
+        sql: COPY ac_user_master_usr FROM 'S3_URI' CREDENTIALS 'aws_iam_role=arn:aws:iam::472514622972:role/testrole' csv DELIMITER ',' EMPTYASNULL IGNOREHEADER 1;
 schedule:
-  - start: 20210921-1228
+  - start: 20210921-1235
     interval: 86400
